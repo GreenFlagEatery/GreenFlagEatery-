@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Green Flag Eatery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --brand: #2ecc71;
+      --dark: #222;
+      --light: #f9f9f9;
+      --max-width: 1100px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: var(--max-width); margin: auto; padding: 0 1rem; }
+
+    header {
+      background: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+      position: sticky; top: 0; z-index: 999;
+    }
+    .nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .75rem 0;
+    }
+    .nav__logo img {
+      height: 50px;
+    }
+    .nav__links {
+      display: flex; list-style: none; gap: 2rem;
+    }
+    .nav__toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+
+    section { padding: 5rem 0; }
+    .section__title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--brand);
+      margin-bottom: 2.5rem;
+    }
+
+    .hero {
+      background: url('https://source.unsplash.com/1600x900/?healthy-food') center/cover no-repeat;
+      color: white; text-align: center; padding: 6rem 1rem;
+      position: relative;
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero__content {
+      position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-size: 2.5rem; margin-bottom: 1rem;
+    }
+    .hero p {
+      font-size: 1.1rem; margin-bottom: 2rem;
+    }
+    .btn {
+      background: var(--brand); color: #fff; padding: 0.75rem 2rem;
+      border: none; border-radius: 50px; cursor: pointer; font-size: 1rem;
+    }
+
+    .menu__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: 0.3s;
+    }
+    .card:hover { transform: translateY(-5px); }
+    .card h3 {
+      margin: 1rem 0 0.5rem;
+      color: var(--brand);
+    }
+    .card p { font-size: 0.95rem; }
+    .tagline {
+      margin-top: 1rem;
+      font-style: italic;
+      color: #555;
+    }
+
+    .contact__info {
+      display: grid;
+      gap: 2rem;
+      text-align: center;
+    }
+    .contact__info i {
+      font-size: 2rem;
+      color: var(--brand);
+      margin-bottom: .5rem;
+    }
+    @media(min-width:600px) {
+      .contact__info { grid-template-columns: repeat(3, 1fr); }
+    }
+    footer {
+      background: var(--dark);
+      color: #ccc;
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.9rem;
+    }
+
+    @media(max-width:768px) {
+      .nav__links {
+        position: fixed;
+        top: 0; right: -100%;
+        flex-direction: column;
+        background: #fff;
+        height: 100vh;
+        width: 60%;
+        padding-top: 5rem;
+        transition: 0.3s;
+      }
+      .nav__links.open {
+        right: 0;
+      }
+      .nav__toggle { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container nav">
+      <div class="nav__logo">
+        <img src="logo.png" alt="Green Flag Eatery Logo">
+      </div>
+      <i class="fas fa-bars nav__toggle" id="burger"></i>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero__content">
+      <h1>Wholesome Bites. Homegrown Greens.</h1>
+      <p>Serving comfort food with a healthy twist in Guinayangan Senior High School.</p>
+      <a href="#menu" class="btn">View Menu</a>
+    </div>
+  </section>
+
+  <section id="menu">
+    <h2 class="section__title">Our Signature Combos</h2>
+    <div class="container menu__grid">
+      <div class="card">
+        <img src="https://source.unsplash.com/400x250/?adobo,filipino-food" alt="Adobo Verde Supreme">
+        <h3>Adobo Verde Supreme</h3>
+        <p>- Kangkong Adobo Rice<br>- Fried Chicken Adobo<br>- Cucumber Lemon Juice</p>
+        <p class="tagline">"Crisp. Comforting. Clearly a green flag."</p>
+      </div>
+      <div class="card">
+        <img src="https://source.unsplash.com/400x250/?fried-chicken,vegetables" alt="The Green Grind">
+        <h3>The Green Grind</h3>
+        <p>- Kangkong Fried Rice<br>- Malunggay Fried Chicken<br>- Cucumber Lemon Juice</p>
+        <p class="tagline">"Powered by greens. Made for go-getters."</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section__title">Visit or Contact Us</h2>
+    <div class="container contact__info">
+      <div><i class="fas fa-map-marker-alt"></i><p>Guinayangan Senior High School<br/>Quezon, Philippines</p></div>
+      <div><i class="fas fa-phone-alt"></i><p>0951 111 2667</p></div>
+      <div><i class="fas fa-envelope"></i><p>greenflageatery@gmail.com</p></div>
+    </div>
+  </section>
+
+  <footer>© 2025 Green Flag Eatery — All rights reserved.</footer>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(link =>
+      link.addEventListener('click', () => navLinks.classList.remove('open'))
+    );
+  </script>
+</body>
+  </html>
